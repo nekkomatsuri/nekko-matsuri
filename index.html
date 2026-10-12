@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>第3回 池上大坊 根っこまつり 出展ガイド</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#fff6ea;--card:#fff;--ink:#4a3320;--sub:#8a6a50;--acc:#b5524a;--line:#ecd9c2;--chip:#fff;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a211a;--card:#3a2e25;--ink:#f5e8d8;--sub:#c9ad92;--acc:#e58b82;--line:#554436;--chip:#3a2e25;}}
+:root[data-theme="dark"]{--bg:#2a211a;--card:#3a2e25;--ink:#f5e8d8;--sub:#c9ad92;--acc:#e58b82;--line:#554436;--chip:#3a2e25;}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;line-height:1.6}
+header{text-align:center;padding:28px 16px 16px;background:linear-gradient(#f7b267,#f79d65);color:#4a1f1a}
+header small{display:block;font-size:.8rem}header h1{margin:.2em 0;font-size:1.7rem}
+.info{font-weight:700}
+main{max-width:960px;margin:0 auto;padding:16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;z-index:2}
+button.chip{border:1px solid var(--line);background:var(--chip);color:var(--ink);padding:8px 14px;border-radius:99px;font-size:.9rem;cursor:pointer}
+button.chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+h2{font-size:1.1rem;border-left:5px solid var(--acc);padding-left:8px;margin:20px 0 8px}
+.tt{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;overflow-x:auto}
+.tt div{display:flex;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line)}.tt div:last-child{border:0}.tt b{min-width:5.5em;color:var(--acc)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;position:relative}
+.no{position:absolute;top:-8px;left:-6px;background:var(--acc);color:#fff;border-radius:99px;min-width:28px;text-align:center;font-size:.8rem;padding:2px 6px}
+.card h3{margin:6px 0 2px;font-size:1rem}.by{color:var(--sub);font-size:.85rem}
+.card p{margin:6px 0;font-size:.9rem}
+.tag{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:6px;padding:0 6px;margin-right:4px;color:var(--sub)}
+.time{font-weight:700;color:var(--acc);font-size:.85rem}
+.note{font-size:.85rem;color:var(--sub);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+footer{text-align:center;color:var(--sub);font-size:.8rem;padding:20px}
+</style></head><body>
+<header><small>令和8年度大田区地域力応援基金助成事業</small>
+<h1>第3回 池上大坊 根っこまつり</h1>
+<div class="info">2026年11月15日(日) 10:00〜15:30 ／ 雨天中止<br>池上本行寺境内(池上2-10-5)</div></header>
+<main>
+<h2>ステージ・体験タイムテーブル</h2>
+<div class="tt">
+<div><b>12:30〜</b>和太鼓演奏(本堂前ステージ)</div>
+<div><b>12:50〜13:30</b>和太鼓体験会(1000円・20名限定・要予約)</div>
+<div><b>13:30〜13:50</b>チアリーディング</div>
+<div><b>13:50〜14:10</b>空手演武</div>
+<div><b>14:10〜14:30</b>軽音楽・三線</div>
+<div><b>14:30〜14:50</b>フラダンス</div>
+<div><b>14:50〜15:10</b>和太鼓演奏(本堂前ステージ)</div>
+<div><b>15:10〜15:30</b>ビンゴ大会</div></div>
+<h2>出展を探す</h2>
+<div class="chips" id="chips"></div>
+<div class="grid" id="grid"></div>
+<h2>ご来場の注意</h2>
+<div class="note">会場にゴミ箱はありません(ゴミはお持ち帰りください)／駐輪場・駐車場はありません(公共交通機関をご利用ください)／境内は玉砂利です。ベビーカーにご注意ください。</div>
+</main>
+<footer>※掲載内容はチラシに基づきます。最新情報は主催者までご確認ください。</footer>
+<script>
+var CATS=[["all","すべて"],["food","飲食"],["shop","販売・展示"],["ex","体験"],["st","ステージ"],["play","遊び・イベント"]];
+var L={food:"飲食",shop:"販売・展示",ex:"体験",st:"ステージ",play:"遊び"};
+// [no,name,by,tags,desc,time]
+var D=[
+[1,"和太鼓演奏","本行寺根っこ太鼓","st","本行寺を拠点とする和太鼓教室。初心者から熟練者まで。","12:30〜／14:50〜15:10"],
+[2,"バルーンプレゼント","チーム根っこまつり","play","バルーンアーティスト守安さんとのコラボ。なくなり次第終了。","10:30〜／12:00〜／13:30〜"],
+[3,"縁日コーナー","チーム根っこまつり","play","ダーツボール・輪投げ・スーパーボールすくい・駄菓子。1回200円(券は鉄門横受付、現金のみ)。","10:00〜14:00"],
+[4,"ビンゴ大会","チーム根っこまつり","st,play","3枚綴りチケット(600円)購入でビンゴカード1枚プレゼント。","15:10〜15:30"],
+[5,"和太鼓体験会","本行寺根っこ太鼓","ex","一人1000円・約30分・20名限定。事前予約がおすすめ。","12:50〜13:30"],
+[6,"チアリーディング","ジュニアチアリーディングクラブ TURTLES","st","3歳から初心者まで安心のクラブによる演技。","13:30〜13:50"],
+[7,"空手演武","極真会館東京城南池上支部","st","力強い基本や型の演武。","13:50〜14:10"],
+[8,"軽音楽・三線","池上軽音楽部+三線教室GAMI","st","フォークソングや歌謡曲、三線の演奏。","14:10〜14:30"],
+[9,"フラダンス","Hala u na ulu ika pai okamaile","st","子どもから大人まで笑顔のステージ。","14:30〜14:50"],
+[10,"リラクゼーションハンドケア","こころほぐし らん","ex","ハンドケアとレイキヒーリングで心身を整える。",""],
+[11,"友禅挿し絵体験・和雑貨販売","そめもよう(大田区伝統工芸発展の会)","ex,shop","コースターなどに彩色して作品づくり。手拭い・半幅帯なども販売。",""],
+[12,"ソープカービング","工房一会","shop","ハリネズミなどのソープカービング作品の製作販売。",""],
+[13,"筆ペンアート 展示販売・体験","己書 円道場","ex,shop","筆文字アートの体験と、手作りアルバム・カードの販売。",""],
+[14,"革小物・ネームプレート","工房のだん","ex,shop","ワンちゃん猫ちゃん向けの革小物とネームプレートを刻印で作るワークショップ。",""],
+[15,"苔玉作り・花苗販売","秀花園","ex,shop","約15分で作れる手軽な苔玉づくり(手ぶらOK)。",""],
+[16,"イニシャルキーホルダー販売・体験","19star5.co","ex,shop","2液性レジンで作る世界でひとつのキーホルダー。",""],
+[17,"アロマスライム・フェミニンケアオイル","botanical life design","ex","親子で楽しむスライム作りと、スプレー・オイルづくり体験。",""],
+[18,"アロマクラフト","MAJIMA","ex","好きな精油を組み合わせてオリジナルのアロマクラフトづくり。",""],
+[19,"ペットボトルキャップのアップサイクル雑貨","mert.(メルト)","shop","キャップから生まれたカラフルなアクセサリーや雑貨。",""],
+[20,"ベーゴマ販売・体験","一般社団法人 東京ベーゴマ","ex,shop","初心者歓迎の体験会、オリジナルグッズ販売も。",""],
+[21,"点てたてお抹茶","洗心会","food,ex","抹茶と和菓子をいただけます。自分で点てる体験も。",""],
+[22,"オリジナルアート作品","絶対無限堂","shop","細胞アーティストmiyooonの作品を使ったTシャツ・缶バッチ・マグネット。",""],
+[23,"和風小物販売","和(かず)","shop","帯や着物をリメイクしたバッグ・小物。",""],
+[24,"布小物販売","手作り小物の店","shop","78才の手作り小物。残り布で作った可愛い小物。",""],
+[25,"羊毛フェルト小物とビーズアクセサリー","la famille(ラ ファミーユ)","shop","一点物の動物や小物、レジンのアクセサリー。",""],
+[26,"ヴィンテージ生地の小物・パラコードのストラップ","C&E","shop","個性豊かなオリジナルのハンドメイド雑貨。",""],
+[27,"乾物・紅茶・ドライフルーツ","池上 lili's kanbutsu(リリズ カンブツ)","food,shop","池上で70年以上続く乾物屋「駿河屋商店」3代目。飲めるおだしなど。",""],
+[28,"旬の果物・大田区のお土産","八百屋丸文","food,shop","洗足池にある昭和8年創業の八百屋。旬の果物やうまいもん。",""],
+[29,"焼菓子・スコーン・クッキー","taberune(タベルネ)","food","池上のスイーツ屋「みんなで創るまちのスイーツ屋」の焼菓子。",""],
+[30,"クッキー・パウンドケーキ・米粉のシフォンケーキ","CASHIKUu(カシクウ)","food","北海道産小麦・バター・国産米粉を使った焼菓子。",""],
+[31,"焼きドーナツ","smiley-smiley(スマイリースマイリー)","food","油で揚げないヘルシーな焼きドーナツ。",""],
+[32,"ホットコーヒー・水出しアイスコーヒー","加とう琲焙煎所","food","オリジナルブレンドのホットと、1滴1滴抽出の水出し。",""],
+[33,"チャイ・パラタ・紅茶葉販売","リキシャカフェ マユラ","food","三輪タクシーの屋台で届ける、濃厚なマサラチャイ。",""],
+[34,"ミニローストポーク丼・牛串・フライドチキン","モンテビアンコ","food","キッチンカーの手間ひまかけた料理。",""],
+[35,"釜めし","にれの木","food","本門寺通りのお店から炊きたての本格釜めし。",""],
+[36,"バインミー・お酒","イエローデリ","food","池上のyellow deriの人気バインミーとお酒。",""],
+[37,"クラフトビールと中華","シュチニクリン","food","自慢のクラフトビール、焼売、ソーセージなど。",""],
+[38,"苺滴(苺のテキーラ)・大福いちご・苺酒","丸に鈴木","food","浅草苺座生まれの苺テキーラ「苺滴」など。",""]
+];
+var cur="all",ch=document.getElementById("chips"),gr=document.getElementById("grid");
+CATS.forEach(function(c){var b=document.createElement("button");b.className="chip"+(c[0]=="all"?" on":"");b.textContent=c[1];
+b.onclick=function(){cur=c[0];[].forEach.call(ch.children,function(x){x.classList.remove("on")});b.classList.add("on");render()};ch.appendChild(b)});
+function esc(s){return s.replace(/[&<>]/g,function(m){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[m]})}
+function render(){gr.innerHTML=D.filter(function(d){return cur=="all"||d[3].split(",").indexOf(cur)>-1}).map(function(d){
+return '<div class="card"><span class="no">'+d[0]+'</span><h3>'+esc(d[1])+'</h3><div class="by">'+esc(d[2])+'</div><p>'+
+d[3].split(",").map(function(t){return '<span class="tag">'+L[t]+'</span>'}).join("")+'</p><p>'+esc(d[4])+'</p>'+(d[5]?'<div class="time">'+esc(d[5])+'</div>':'')+'</div>'}).join("")}
+render();
+</script></body></html>
