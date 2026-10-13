@@ -6,6 +6,6 @@
 var YOYAKU={
 date:"10/13",
 time:"10:00",
-state:"空きあり",
-n:"17"
+state:"キャンセル待ち",
+n:"5"
 };
