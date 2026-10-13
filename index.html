@@ -54,7 +54,7 @@ footer{text-align:center;color:var(--sub);font-size:.8rem;padding:20px}
 <script>
 // ▼▼ 和太鼓体験会の予約状況(ここだけ書き換えてください) ▼▼
 // time: "10:30"(時点の時刻) / state: "空きあり" か "キャンセル待ち" か "満席" / n: 人数(満席のときは不要)
-var YOYAKU={date:"10/13",time:"10:00",state:"空きあり",n:"17"};
+var YOYAKU={date:"",time:"10/13 10:00",state:"空きあり",n:"17"};
 // ▲▲ ここまで ▲▲
 function yoyakuHTML(){var y=YOYAKU;if(!y.time||!y.state)return '<div class="st none">予約状況は準備中です</div>';
 var c=y.state=="満席"?"full":(y.state=="キャンセル待ち"?"wait":"ok");
